@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 7779915161592024534}
   - component: {fileID: 7779915161592024552}
   - component: {fileID: 7779915161592024535}
-  - component: {fileID: -3894986489652020948}
+  - component: {fileID: 7767797286264701924}
   m_Layer: 5
   m_Name: AppleSign
   m_TagString: Untagged
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-3894986489652020948
+--- !u!114 &7767797286264701924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7779915161592024533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6636873f3224bf14c9001e882ae344b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 956014fc14e77ff4d859bdcf3e6c83f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curType: 1

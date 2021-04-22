@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4126909713623069088}
   - component: {fileID: 4126909713623069090}
-  - component: {fileID: 4126909713623069091}
+  - component: {fileID: 4980403351363306177}
   m_Layer: 0
   m_Name: AppleSauce
   m_TagString: Untagged
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2551514, y: 2.1413171, z: 0.5621152}
   m_Center: {x: 0.12757646, y: -0.57065827, z: -0.060057048}
---- !u!114 &4126909713623069091
+--- !u!114 &4980403351363306177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a55f96232cf1349b5488ecc3d871a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signType: 0
+  signType: 1
 --- !u!1 &4126909713690160202
 GameObject:
   m_ObjectHideFlags: 0

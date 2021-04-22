@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SignType { apple,banana,strawberry}
 
 
-public class SingleSign : MonoBehaviour
+
+public enum sauceType { banana,apple,strawberry}
+
+
+public class Sauces: MonoBehaviour
 {
-
-    public SignType currentType;
-
-
+    public sauceType curType;
     // Start is called before the first frame update
     void Start()
     {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5909246749032184760}
   - component: {fileID: 5909246749032184758}
   - component: {fileID: 5909246749032184761}
-  - component: {fileID: 7375134690077490267}
+  - component: {fileID: 2886833230560412594}
   m_Layer: 5
   m_Name: StrawberrySign
   m_TagString: Untagged
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.28595585, g: 0.38527617, b: 0.9622642, a: 0.64705884}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7375134690077490267
+--- !u!114 &2886833230560412594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,10 +85,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5909246749032184763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6636873f3224bf14c9001e882ae344b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 956014fc14e77ff4d859bdcf3e6c83f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentType: 2
+  curType: 2
 --- !u!1 &5909246750366927723
 GameObject:
   m_ObjectHideFlags: 0
