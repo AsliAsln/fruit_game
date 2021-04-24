@@ -7,13 +7,18 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     PlayerController playerController;
+    public TopBarController topBar;
+ 
+
+
     public List<GameObject> fruits;
+    public List<GameObject> panelSigns;
+
+
     public int combinationNumber;
     private Transform initialSauceObject;
     private Vector3 lastPosition;
     public Transform sauceParents;
-
-    public List<GameObject> panelSigns;
     public Transform curPos;
     public GameObject Sign;
 
@@ -33,7 +38,8 @@ public class GameManager : MonoBehaviour
     public GameObject bananaSign;
     public GameObject appleSign;
 
-    public GameObject requiredSignType;
+    public SauceType requiredSignType;
+
 
 
 
@@ -41,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+                initialSauceObject = fruits[0].transform;
+
         if (Instance == null)
         {
             Instance = this;
@@ -56,9 +64,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-        CreateCombination(10);
-        CreatePanelSign(10);
-
+        CreatePanelSign(15);
+        CreateCombination(15);
 
     }
     private void Update()
@@ -66,11 +73,12 @@ public class GameManager : MonoBehaviour
 
         if (Grounds[1].transform.position.z < player.transform.position.z)
         {
-            ReplaceGrounds();
-            CreatePanelSign(5);
-            CreateCombination(5);
 
+            CreatePanelSign(4);
+            CreateCombination(4);
+            ReplaceGrounds();
         }
+        
 
 
 
@@ -78,17 +86,17 @@ public class GameManager : MonoBehaviour
     }
     private void CreateCombination(int combinationNumber)
     {
+
         for (int i = 0; i < combinationNumber; i++)
         {
-            initialSauceObject = fruits[0].transform;
             lastPosition = initialSauceObject.localPosition;
             int RandomCombination = Random.Range(0, fruits.Count);
             GameObject nextCombination = Instantiate(fruits[RandomCombination], sauceParents);
             nextCombination.transform.localPosition = lastPosition + new Vector3(0f, 0f, 10f);
-            fruits.Add(nextCombination);
-            fruits.RemoveAt(0);
+            initialSauceObject = nextCombination.transform;
         }
     }
+   
 
 
 
@@ -99,8 +107,6 @@ public class GameManager : MonoBehaviour
             int RandomSign = Random.Range(0, panelSigns.Count);
             GameObject nextSign = Instantiate(panelSigns[RandomSign], curPos.position + new Vector3(306f, 0f, 0f), Quaternion.identity, Sign.transform);
             curPos = nextSign.transform;
-            fruits.RemoveAt(0);
-            requiredSignType=panelSigns[0]
 
         }
     }
@@ -117,7 +123,7 @@ public class GameManager : MonoBehaviour
 
    private void checkSace()
     {
-        if(.==)
+        
     }
 
 }

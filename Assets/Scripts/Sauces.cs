@@ -5,12 +5,14 @@ using UnityEngine;
 
 
 
-public enum sauceType { banana,apple,strawberry}
+public enum SauceType { banana,apple,strawberry}
 
 
 public class Sauces: MonoBehaviour
 {
-    public sauceType curType;
+    public static Sauces Instance;
+    public SauceType curSignType;
+
     // Start is called before the first frame update
     void Start()
     {
