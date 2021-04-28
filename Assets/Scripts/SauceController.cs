@@ -5,7 +5,7 @@ using UnityEngine;
 public class SauceController : MonoBehaviour
 {
     private ParticleSystem particle;
-    public SauceType SauceType;
+    public SauceType sauceType;
     // Start is called before the first frame update
     private void Start()
     {
@@ -22,19 +22,26 @@ public class SauceController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
 
     {
+        
         if (other.gameObject.tag == "player")
         {
             particle.gameObject.SetActive(true);
 
-            if (GameManager.Instance.requiredSignType == Sauces.Instance.curSignType)
+            Debug.Log(GameManager.Instance.requiredSignType);
+
+            particle.gameObject.SetActive(true);
+
+            if (GameManager.Instance.requiredSignType == sauceType)
             {
+
                 GameManager.Instance.score += 10;
                 GameManager.Instance.topBar.ChangeRequiredFruit();
                 GameManager.Instance.topBar.ChangeRequiredFruit();
-                GameManager.Instance.Sign.transform.position+=new Vector3(-200,0,0);
+                GameManager.Instance.Sign.transform.localPosition+=new Vector3(-206,0,0);
             }
             else
             {
+                Debug.Log(sauceType);
                 GameManager.Instance.score -= 10;
                 GameManager.Instance.topBar.ChangeRequiredFruit();
 

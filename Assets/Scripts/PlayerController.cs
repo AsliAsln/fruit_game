@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 force;
     public Animator playerAnimator;
     private Vector2 Direction;
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,31 +21,30 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-       transform.Translate(Vector3.forward * Time.deltaTime*speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-       
+
 
         if (Input.GetKeyDown(KeyCode.D))
-            {
-                playerAnimator.SetBool("isJumping", true);
+        {
+            playerAnimator.SetBool("isJumping", true);
             playerAnimator.Play("Jump");
             rb.AddForce(force);
             AudioManager.Instance.PlaySound(SoundTypes.Jump);
         }
         else if (Input.GetKeyDown(KeyCode.A))
-            {
-                playerAnimator.SetBool("isJumping", true);
+        {
+            playerAnimator.SetBool("isJumping", true);
             playerAnimator.Play("Jump");
             rb.AddForce(-force);
             AudioManager.Instance.PlaySound(SoundTypes.Jump);
         }
         else
-            {
-                playerAnimator.SetBool("isJumping", false);
+        {
+            playerAnimator.SetBool("isJumping", false);
 
-            }
-        
+        }
+
     }
-   
-}
 
+}

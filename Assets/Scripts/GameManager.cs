@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < panelSignNumber; i++)
         {
             int RandomSign = Random.Range(0, panelSigns.Count);
-            GameObject nextSign = Instantiate(panelSigns[RandomSign], curPos.position + new Vector3(306f, 0f, 0f), Quaternion.identity, Sign.transform);
+            GameObject nextSign = Instantiate(panelSigns[RandomSign], curPos.position + new Vector3(206f, 0f, 0f), Quaternion.identity, Sign.transform);
             curPos = nextSign.transform;
 
         }

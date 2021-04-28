@@ -503,6 +503,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2178469454326681298, guid: e771cb3690497c24d9b2006683ce71d2,
+        type: 3}
+      propertyPath: sauceType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e771cb3690497c24d9b2006683ce71d2, type: 3}
 --- !u!4 &9021412130187276955 stripped
@@ -578,6 +583,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppleSauce
       objectReference: {fileID: 0}
+    - target: {fileID: 4980403351363306177, guid: 54224509e3c49ac478a4ccf5c32e988c,
+        type: 3}
+      propertyPath: sauceType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54224509e3c49ac478a4ccf5c32e988c, type: 3}
 --- !u!4 &5390947158035325465 stripped
@@ -646,6 +656,11 @@ PrefabInstance:
     - target: {fileID: 1237128468544130900, guid: de68da7d231886d45b955eca1568f975,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237128468544130901, guid: de68da7d231886d45b955eca1568f975,
+        type: 3}
+      propertyPath: sauceType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1237128468544130903, guid: de68da7d231886d45b955eca1568f975,
