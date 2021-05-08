@@ -4,29 +4,59 @@ using UnityEngine;
 
 public class TopBarController : MonoBehaviour
 {
+    public RectTransform RectTransform;
+    public Transform curPos;
+    public List<GameObject> panelSigns;
+    public List<GameObject> signs;
+
+    public GameObject Sign;
+
+
+
     int signTypeNumber;
     // Start is called before the first frame update
-    void update()
+    private void Start()
     {
-        ChangeRequiredFruit();
+
+
+
+        CreatePanelSign(15);
+        RectTransform = GetComponent<RectTransform>();
+        SetRequiredFruit();
+       
+
     }
+  
    
     // Update is called once per frame
+    public void SetRequiredFruit()
+    {
+        GameManager.Instance.requiredSignType = signs[0].GetComponent<Sauces>().curSignType;
+        Debug.Log("set  required fruit to:" + signs[0].GetComponent<Sauces>().curSignType);
+    }
     public void ChangeRequiredFruit()
     {
-        if (GameManager.Instance.appleSign.transform.position.x == -9)
+        CreatePanelSign(1);
+        //rectTransfor.sizeDelta
+        //Destroy(signs[0]);
+        signs.RemoveAt(0);
+        SetRequiredFruit();
+        //Debug.Log("Required sauce type change to:  " + GameManager.Instance.requiredSignType);
+    }
+    private void CreatePanelSign(int panelSignNumber)
+    {
+        
+        for (int i = 0; i < panelSignNumber; i++)
         {
-            GameManager.Instance.requiredSignType = SauceType.apple;
-        }
-        else if (GameManager.Instance.strawberrySign.transform.position.x == -9)
-        {
-            GameManager.Instance.requiredSignType = SauceType.strawberry;
-        }
-        else if (GameManager.Instance.bananaSign.transform.position.x == -9)
-        {
-            GameManager.Instance.requiredSignType = SauceType.banana;
+
+            int RandomSign = Random.Range(0, panelSigns.Count);
+            GameObject nextSign = Instantiate(panelSigns[RandomSign], curPos.position + new Vector3(206f, 0f, 0f), Quaternion.identity,Sign.transform);
+            curPos = nextSign.transform;
+            signs.Add(nextSign);
+
+
         }
     }
-   
+
 
 }

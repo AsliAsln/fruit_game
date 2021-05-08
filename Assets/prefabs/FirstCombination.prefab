@@ -503,6 +503,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppleSauce
       objectReference: {fileID: 0}
+    - target: {fileID: 4126909713623069090, guid: 54224509e3c49ac478a4ccf5c32e988c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126909713623069090, guid: 54224509e3c49ac478a4ccf5c32e988c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.54886
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126909713623069090, guid: 54224509e3c49ac478a4ccf5c32e988c,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.06412663
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126909713623069090, guid: 54224509e3c49ac478a4ccf5c32e988c,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.7744287
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126909713623069090, guid: 54224509e3c49ac478a4ccf5c32e988c,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.0076523023
+      objectReference: {fileID: 0}
     - target: {fileID: 4980403351363306177, guid: 54224509e3c49ac478a4ccf5c32e988c,
         type: 3}
       propertyPath: sauceType
@@ -593,15 +618,45 @@ PrefabInstance:
       propertyPath: sauceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2178469454326681299, guid: e771cb3690497c24d9b2006683ce71d2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178469454326681299, guid: e771cb3690497c24d9b2006683ce71d2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.4839334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178469454326681299, guid: e771cb3690497c24d9b2006683ce71d2,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.16805162
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178469454326681299, guid: e771cb3690497c24d9b2006683ce71d2,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.022918183
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178469454326681299, guid: e771cb3690497c24d9b2006683ce71d2,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.74196583
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178469454326681299, guid: e771cb3690497c24d9b2006683ce71d2,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.110077895
+      objectReference: {fileID: 0}
     - target: {fileID: 2178469454913151526, guid: e771cb3690497c24d9b2006683ce71d2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2178469454913151526, guid: e771cb3690497c24d9b2006683ce71d2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2178469454913151526, guid: e771cb3690497c24d9b2006683ce71d2,
         type: 3}
@@ -616,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 2178469454913151526, guid: e771cb3690497c24d9b2006683ce71d2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e771cb3690497c24d9b2006683ce71d2, type: 3}
@@ -692,6 +747,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BananaSauce
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237128468544130906, guid: de68da7d231886d45b955eca1568f975,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237128468544130906, guid: de68da7d231886d45b955eca1568f975,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.2997823
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237128468544130906, guid: de68da7d231886d45b955eca1568f975,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.6498907
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de68da7d231886d45b955eca1568f975, type: 3}

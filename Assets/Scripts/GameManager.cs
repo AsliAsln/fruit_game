@@ -6,21 +6,24 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    PlayerController playerController;
+    public static SauceController sauceController;
+    public PlayerController playerController;
+
     public TopBarController topBar;
- 
+    public Transform firsCombination;
 
 
     public List<GameObject> fruits;
-    public List<GameObject> panelSigns;
+
+
 
 
     public int combinationNumber;
     private Transform initialSauceObject;
     private Vector3 lastPosition;
     public Transform sauceParents;
-    public Transform curPos;
-    public GameObject Sign;
+
+    public bool isGameStarted = false;
 
 
 
@@ -32,6 +35,9 @@ public class GameManager : MonoBehaviour
     public GameObject strawbery;
 
     public int score;
+    public int highScore;
+    private int bestScoreNum;
+
 
     public List<GameObject> Grounds;
     public GameObject strawberrySign;
@@ -39,7 +45,7 @@ public class GameManager : MonoBehaviour
     public GameObject appleSign;
 
     public SauceType requiredSignType;
-
+    public UIManager uiManager;
 
 
 
@@ -47,7 +53,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-                initialSauceObject = fruits[0].transform;
+
+       initialSauceObject = firsCombination;
 
         if (Instance == null)
         {
@@ -63,18 +70,23 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
-        CreatePanelSign(15);
+        highScore=PlayerPrefs.GetInt("HighScore");
         CreateCombination(15);
 
     }
     private void Update()
     {
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore);
+        }
+
+
 
         if (Grounds[1].transform.position.z < player.transform.position.z)
         {
-
-            CreatePanelSign(4);
+      
             CreateCombination(4);
             ReplaceGrounds();
         }
@@ -90,9 +102,11 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < combinationNumber; i++)
         {
             lastPosition = initialSauceObject.localPosition;
-            int RandomCombination = Random.Range(0, fruits.Count);
-            GameObject nextCombination = Instantiate(fruits[RandomCombination], sauceParents);
-            nextCombination.transform.localPosition = lastPosition + new Vector3(0f, 0f, 10f);
+            int randomCombination = Random.Range(0, fruits.Count);
+            
+
+            GameObject nextCombination = Instantiate(fruits[randomCombination], sauceParents);
+            nextCombination.transform.localPosition = lastPosition + new Vector3(0f, 0f, 15f);
             initialSauceObject = nextCombination.transform;
         }
     }
@@ -100,16 +114,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    private void CreatePanelSign(int panelSignNumber)
-    {
-        for (int i = 0; i < panelSignNumber; i++)
-        {
-            int RandomSign = Random.Range(0, panelSigns.Count);
-            GameObject nextSign = Instantiate(panelSigns[RandomSign], curPos.position + new Vector3(206f, 0f, 0f), Quaternion.identity, Sign.transform);
-            curPos = nextSign.transform;
-
-        }
-    }
+   
 
 
     private void ReplaceGrounds()
@@ -121,10 +126,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-   private void checkSace()
+  
+
+   
+    
+    void OnDestroy()
     {
-        
+        PlayerPrefs.SetInt("HighScore", highScore);
+        PlayerPrefs.Save();
     }
+
 
 }
 

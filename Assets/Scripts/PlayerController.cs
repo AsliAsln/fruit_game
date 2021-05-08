@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
@@ -10,7 +10,11 @@ public class PlayerController : MonoBehaviour
     public Vector3 force;
     public Animator playerAnimator;
     private Vector2 Direction;
-    
+    public Transform right;
+    public Transform left;
+    public Transform middle;
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -29,14 +33,24 @@ public class PlayerController : MonoBehaviour
         {
             playerAnimator.SetBool("isJumping", true);
             playerAnimator.Play("Jump");
-            rb.AddForce(force);
+            if (transform.position.x == left.localPosition.x)
+            {
+                middleMove();
+            }
+            else if(transform.position.x == middle.localPosition.x)
+                rightMove();
             AudioManager.Instance.PlaySound(SoundTypes.Jump);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             playerAnimator.SetBool("isJumping", true);
             playerAnimator.Play("Jump");
-            rb.AddForce(-force);
+            if (transform.position.x == right.localPosition.x)
+            {
+                middleMove();
+            }
+            else if(transform.position.x == middle.localPosition.x)
+                leftMove();
             AudioManager.Instance.PlaySound(SoundTypes.Jump);
         }
         else
@@ -45,6 +59,27 @@ public class PlayerController : MonoBehaviour
 
         }
 
-    }
 
+        void leftMove()
+        {
+            transform.DOMoveX(left.localPosition.x, 0.5f);
+        }
+        void rightMove()
+        {
+            transform.DOMoveX(right.localPosition.x, 0.5f);
+        }
+        void middleMove()
+        {
+            
+              transform.DOMoveX(middle.localPosition.x, 0.5f);
+
+           
+        }
+        
+
+    }
+    public void GameEnded()
+    {
+        rb.velocity = new Vector3(0f, 0f, 0f);
+    }
 }

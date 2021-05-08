@@ -6,13 +6,16 @@ public class SauceController : MonoBehaviour
 {
     private ParticleSystem particle;
     public SauceType sauceType;
+    private bool isPlayerContact = false;
+
     // Start is called before the first frame update
     private void Start()
     {
-        particle = GetComponentInChildren<ParticleSystem>();
-        particle.gameObject.SetActive(false);
+            particle = GetComponentInChildren<ParticleSystem>();
+        if(particle!=null)
+            particle.gameObject.SetActive(false);
         
-
+        
     }
 
 
@@ -22,35 +25,35 @@ public class SauceController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
 
     {
-        
-        if (other.gameObject.tag == "player")
+        if ((other.gameObject.tag == "player") && particle != null && !isPlayerContact)
         {
+            isPlayerContact = true;
             particle.gameObject.SetActive(true);
-
-            Debug.Log(GameManager.Instance.requiredSignType);
-
+            Debug.Log("Current Sauce Type: " + sauceType + " Required Sauce: " + GameManager.Instance.requiredSignType);
             particle.gameObject.SetActive(true);
 
             if (GameManager.Instance.requiredSignType == sauceType)
             {
+                GameManager.Instance.topBar.ChangeRequiredFruit();
+                GameManager.Instance.topBar.RectTransform.anchoredPosition += new Vector2(-206, 0);
 
                 GameManager.Instance.score += 10;
-                GameManager.Instance.topBar.ChangeRequiredFruit();
-                GameManager.Instance.topBar.ChangeRequiredFruit();
-                GameManager.Instance.Sign.transform.localPosition+=new Vector3(-206,0,0);
             }
             else
             {
-                Debug.Log(sauceType);
-                GameManager.Instance.score -= 10;
-                GameManager.Instance.topBar.ChangeRequiredFruit();
+                GameManager.Instance.uiManager.GameOver();
+                GameManager.Instance.playerController.speed = 0;
+
+
 
             }
 
         }
         else
         {
+            if(particle)
             particle.gameObject.SetActive(false);
+            
 
         }
 

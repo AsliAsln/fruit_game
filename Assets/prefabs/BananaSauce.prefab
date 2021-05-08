@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9999998, y: 1.8568023, z: 0.3965933}
-  m_Center: {x: 0, y: -0.4284007, z: -0.025151849}
+  m_Size: {x: 0.049476862, y: 1.8568023, z: 0.086508125}
+  m_Center: {x: 0.016376466, y: -0.4284007, z: -0.046303116}
 --- !u!114 &1237128468544130901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a55f96232cf1349b5488ecc3d871a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signType: 0
+  sauceType: 0
 --- !u!1 &1237128468804280911
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -30
+      scalar: -50
       minScalar: 5
       maxCurve:
         serializedVersion: 2
