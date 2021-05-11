@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
 
 {
     public GameObject gameOverPanel;
+    public GameObject pausePanel;
+
     public Text score;
     public TextMeshProUGUI lastScore;
     public TextMeshProUGUI bestScore;
@@ -45,7 +47,8 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         AudioManager.Instance.PlaySound(SoundTypes.Button);
-        ReStart();
+        SceneManager.LoadScene(1);
+        gameOverPanel.SetActive(false);
     }
 
     public void SoundButtoPressed()
@@ -54,12 +57,7 @@ public class UIManager : MonoBehaviour
         AudioManager.Instance.PlaySound(SoundTypes.Button);
     }
 
-    public void ReStart()
-    {
-        AudioManager.Instance.PlaySound(SoundTypes.Button);
-
-        SceneManager.LoadScene(1);
-    }
+    
 
     public void GameOver()
     {
@@ -72,6 +70,20 @@ public class UIManager : MonoBehaviour
 
 
     }
+    public void pauseMenu()
+    {
+        pausePanel.SetActive(true);
+        Time.timeScale = 0;
+
+    }
+    public void resume()
+    {
+        pausePanel.SetActive(false);
+        Time.timeScale = 1;
+
+    }
+
+
 
 
 

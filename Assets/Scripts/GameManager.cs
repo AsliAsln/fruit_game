@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static SauceController sauceController;
     public PlayerController playerController;
-
+    public SwipeControls swipeControler;
     public TopBarController topBar;
     public Transform firsCombination;
 
@@ -70,6 +70,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        uiManager.gameOverPanel.SetActive(false);
+
+
         highScore=PlayerPrefs.GetInt("HighScore");
         CreateCombination(15);
 

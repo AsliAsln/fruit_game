@@ -29,7 +29,7 @@ public class SauceController : MonoBehaviour
         {
             isPlayerContact = true;
             particle.gameObject.SetActive(true);
-            Debug.Log("Current Sauce Type: " + sauceType + " Required Sauce: " + GameManager.Instance.requiredSignType);
+            //Debug.Log("Current Sauce Type: " + sauceType + " Required Sauce: " + GameManager.Instance.requiredSignType);
             particle.gameObject.SetActive(true);
 
             if (GameManager.Instance.requiredSignType == sauceType)

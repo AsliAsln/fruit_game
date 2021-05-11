@@ -9,48 +9,69 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public Vector3 force;
     public Animator playerAnimator;
-    private Vector2 Direction;
     public Transform right;
     public Transform left;
     public Transform middle;
+    private bool rightSwipe;
+    private bool leftSwipe;
+
 
 
     // Start is called before the first frame update
     private void Start()
     {
+
         rb = GetComponent<Rigidbody>();
 
     }
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(rightSwipe);
+        //Debug.Log(leftSwipe);
+
+        leftSwipe = GameManager.Instance.swipeControler.leftDirection;
+
+        rightSwipe = GameManager.Instance.swipeControler.rightDirection;
 
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
 
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (rightSwipe)
         {
             playerAnimator.SetBool("isJumping", true);
             playerAnimator.Play("Jump");
+
             if (transform.position.x == left.localPosition.x)
             {
+                Debug.Log("i am going middle");
                 middleMove();
             }
-            else if(transform.position.x == middle.localPosition.x)
+
+            else if (transform.position.x == middle.localPosition.x)
+            {
                 rightMove();
+                Debug.Log("i am goinh right");
+            }
+
             AudioManager.Instance.PlaySound(SoundTypes.Jump);
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+
+        else if (leftSwipe)
         {
             playerAnimator.SetBool("isJumping", true);
             playerAnimator.Play("Jump");
+
             if (transform.position.x == right.localPosition.x)
             {
                 middleMove();
             }
+
             else if(transform.position.x == middle.localPosition.x)
+
                 leftMove();
+
             AudioManager.Instance.PlaySound(SoundTypes.Jump);
         }
         else

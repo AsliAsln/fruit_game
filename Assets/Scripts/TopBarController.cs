@@ -32,7 +32,7 @@ public class TopBarController : MonoBehaviour
     public void SetRequiredFruit()
     {
         GameManager.Instance.requiredSignType = signs[0].GetComponent<Sauces>().curSignType;
-        Debug.Log("set  required fruit to:" + signs[0].GetComponent<Sauces>().curSignType);
+        //Debug.Log("set  required fruit to:" + signs[0].GetComponent<Sauces>().curSignType);
     }
     public void ChangeRequiredFruit()
     {
