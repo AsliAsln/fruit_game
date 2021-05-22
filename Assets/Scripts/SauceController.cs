@@ -38,10 +38,22 @@ public class SauceController : MonoBehaviour
                 GameManager.Instance.topBar.RectTransform.anchoredPosition += new Vector2(-206, 0);
 
                 GameManager.Instance.score += 10;
+
+                if (GameManager.Instance.uiManager.score != null)
+                {
+                    GameManager.Instance.uiManager.score.text = GameManager.Instance.score.ToString();
+                }
             }
             else
             {
+                if (GameManager.Instance.score > GameManager.Instance.highScore)
+                {
+                    GameManager.Instance.highScore = GameManager.Instance.score;
+
+                }
                 GameManager.Instance.uiManager.GameOver();
+                
+                
                 GameManager.Instance.playerController.speed = 0;
 
 

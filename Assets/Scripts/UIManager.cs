@@ -27,17 +27,10 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+
         if (score != null)
         {
             score.text = GameManager.Instance.score.ToString();
-        }
-        if (lastScore != null)
-        {
-            lastScore.text = "SCORE: "+GameManager.Instance.score.ToString();
-        }
-        if (bestScore != null)
-        {
-            bestScore.text = "High Score: " + GameManager.Instance.highScore;
         }
     }
 
@@ -62,6 +55,7 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        TextWrite();
 
     }
     public void MainMenu()
@@ -82,7 +76,17 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
 
     }
-
+    private void TextWrite()
+    {
+        if (lastScore != null)
+        {
+            lastScore.text = "SCORE: " + GameManager.Instance.score.ToString();
+        }
+        if (bestScore != null)
+        {
+            bestScore.text = "High Score: " + GameManager.Instance.highScore;
+        }
+    }
 
 
 

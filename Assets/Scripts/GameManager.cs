@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
 
 
     public List<GameObject> Grounds;
+    private List<int> highScores;
+
     public GameObject strawberrySign;
     public GameObject bananaSign;
     public GameObject appleSign;
@@ -70,21 +72,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("i")) 
+            PlayerPrefs.SetInt("i", 1);
+        if (!PlayerPrefs.HasKey("HighScore"))
+            PlayerPrefs.SetInt("HighScore", 0);
+
         uiManager.gameOverPanel.SetActive(false);
-
-
-        highScore=PlayerPrefs.GetInt("HighScore");
+        highScore =PlayerPrefs.GetInt("HighScore");
         CreateCombination(15);
 
     }
     private void Update()
     {
-        if (score > highScore)
-        {
-            highScore = score;
-            PlayerPrefs.SetInt("HighScore", highScore);
-        }
-
 
 
         if (Grounds[1].transform.position.z < player.transform.position.z)
@@ -98,6 +97,11 @@ public class GameManager : MonoBehaviour
 
 
 
+    }
+    IEnumerator printScore()
+    {
+        yield return new WaitForSeconds(3);
+        printBestScores();
     }
     private void CreateCombination(int combinationNumber)
     {
@@ -135,10 +139,33 @@ public class GameManager : MonoBehaviour
     
     void OnDestroy()
     {
-        PlayerPrefs.SetInt("HighScore", highScore);
-        PlayerPrefs.Save();
-    }
+        if (score > highScore)
+        {
 
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.Save();
+
+        }
+        else if (score == highScore)
+        {
+            PlayerPrefs.SetInt("myList_" + "i", score);
+            PlayerPrefs.SetInt("i",PlayerPrefs.GetInt("i")+1);
+            PlayerPrefs.Save();
+
+
+        }
+    }
+    void printBestScores()
+    {
+        // ...
+        PlayerPrefs.SetInt("myList_count", highScores.Count);
+        for (var i = 0; i < highScores.Count; i++)
+        {
+            if(PlayerPrefs.HasKey("myList_" + i)==true)
+            Debug.Log(PlayerPrefs.GetInt("myList_" + i, highScores[i]));
+        }
+    }
 
 }
 

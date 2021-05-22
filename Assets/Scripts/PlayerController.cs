@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (rightSwipe)
+        if (Input.GetKeyDown(KeyCode.D))
         {
             playerAnimator.SetBool("isJumping", true);
             playerAnimator.Play("Jump");
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             AudioManager.Instance.PlaySound(SoundTypes.Jump);
         }
 
-        else if (leftSwipe)
+        else if (Input.GetKeyDown(KeyCode.A))
         {
             playerAnimator.SetBool("isJumping", true);
             playerAnimator.Play("Jump");
